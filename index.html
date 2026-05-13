@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Valorant Mobile Nepal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== RIOT GLOW BACKGROUND ===== */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(220,20,60,0.25), transparent 60%);
+    top:-150px;
+    left:-150px;
+    filter:blur(70px);
+    animation:move1 6s infinite alternate ease-in-out;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(0,56,168,0.25), transparent 60%);
+    bottom:-150px;
+    right:-150px;
+    filter:blur(70px);
+    animation:move2 7s infinite alternate ease-in-out;
+    z-index:-1;
+}
+
+@keyframes move1{
+    from{transform:translate(0,0);}
+    to{transform:translate(100px,80px);}
+}
+
+@keyframes move2{
+    from{transform:translate(0,0);}
+    to{transform:translate(-100px,-80px);}
+}
+
+/* ===== HEADER ===== */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+}
+
+.logo span{ color:#dc143c; }
+
+nav a{
+    color:white;
+    margin-left:18px;
+    text-decoration:none;
+}
+
+nav a:hover{ color:#dc143c; }
+
+/* ===== HERO ===== */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 8%;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(rgba(5,8,22,0.88),rgba(5,8,22,0.95)),
+    url('https://media.tenor.com/9vRAkntogEMAAAAC/valorant-jett.gif');
+    background-size:cover;
+    z-index:-2;
+}
+
+.hero h1{
+    font-size:70px;
+    text-shadow:0 0 25px rgba(220,20,60,0.6);
+}
+
+.hero h1 span{ color:#dc143c; }
+
+.hero p{
+    max-width:900px;
+    margin:20px auto;
+    color:#cfcfcf;
+    line-height:1.8;
+}
+
+/* ===== SOCIAL BUTTONS ===== */
+.social-buttons a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin:8px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#dc143c,#0038a8);
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.social-buttons a:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(220,20,60,0.5);
+}
+
+/* ===== SECTIONS ===== */
+section{
+    padding:100px 8%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+/* ===== CARDS ===== */
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+    position:relative;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 30px rgba(220,20,60,0.25);
+}
+
+/* ===== SPONSOR ===== */
+.sponsor-box{
+    background:linear-gradient(145deg,#0c1327,#101a35);
+    padding:60px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.sponsor-box ul{
+    text-align:left;
+    margin-top:20px;
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#070b14;
+    text-align:center;
+    padding:40px;
+    color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">VALM <span>Nepal</span></div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#community">Tournament</a>
+<a href="#support">Support</a>
+<a href="#sponsor">Sponsor</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero show" id="home">
+
+<h1>Valorant Mobile <span>Nepal</span></h1>
+
+<p>
+Valorant Mobile Nepal is the premier esports hub bridging tactical gaming with Nepal’s competitive community.
+We support players with scrims, tournaments, training, and a toxic-free environment.
+</p>
+
+<p><b>📩 valorantmobilenepal@gmail.com</b></p>
+
+<div class="social-buttons">
+
+<a href="https://discord.gg/RRUnDDv6qR"><i class="fab fa-discord"></i> Discord</a>
+<a href="https://www.youtube.com"><i class="fab fa-youtube"></i> YouTube</a>
+<a href="https://www.tiktok.com/@valorantmobilenepal.0"><i class="fab fa-tiktok"></i> TikTok</a>
+
+<!-- Gmail OPEN COMPOSE -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=valorantmobilenepal@gmail.com&su=VALM%20Inquiry"
+target="_blank">
+<i class="fas fa-envelope"></i> Gmail
+</a>
+
+</div>
+
+</section>
+
+<!-- TOURNAMENT -->
+<section id="community">
+
+<h2 class="title">Upcoming Tournament</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<h3>Season 2 Championship</h3>
+
+<p>
+16 elite teams will compete in Nepal’s biggest Valorant Mobile esports tournament.
+</p>
+
+<p>
+💰 Prize Pool: XXXX<br>
+🏆 Slots: 16 Teams<br>
+🎮 Knockout + Finals
+</p>
+
+<p>
+<a href="https://discord.gg/RRUnDDv6qR" style="color:#dc143c;">
+<i class="fab fa-discord"></i> Register via Discord
+</a>
+</p>
+
+</div>
+
+<div class="card">
+<h3>Daily Scrims</h3>
+<p>
+🕓 Registration: 4 PM – 6 PM<br>
+❌ Closed after 6 PM<br>
+Discord registration required.
+</p>
+</div>
+
+<div class="card">
+<h3>Growth System</h3>
+<p>
+Helping Nepali players grow into competitive esports professionals.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SUPPORT -->
+<section id="support">
+
+<h2 class="title">Support</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Player Support</h3>
+<p>Scrim help, Discord setup, tournament guidance.</p>
+</div>
+
+<div class="card">
+<h3>WeChat Support</h3>
+<p>We help new players access Valorant Mobile using WeChat guidance.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SPONSOR -->
+<section id="sponsor">
+
+<div class="sponsor-box">
+
+<h2>Partner With VALM Nepal</h2>
+
+<p>
+Support esports growth in Nepal and gain massive community exposure.
+</p>
+
+<h3>🎯 Sponsor Benefits</h3>
+
+<ul>
+<li>Brand promotion in tournaments & livestreams</li>
+<li>Logo on posters and events</li>
+<li>Social media promotion (Discord, TikTok, YouTube)</li>
+<li>Access to gaming audience in Nepal</li>
+<li>Event shoutouts & recognition</li>
+</ul>
+
+<br>
+
+<!-- SPONSOR MAIL (GMAIL COMPOSE) -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=valorantmobilenepal@gmail.com&su=Sponsorship%20Inquiry%20-%20VALM%20Nepal&body=Hello%20VALM%20Nepal%2C%0A%0AI%20am%20interested%20in%20sponsoring%20your%20events.%0A%0AName%3A%0ACompany%3A%0ABudget%3A%0A%0AThank%20you."
+target="_blank"
+style="display:inline-block;padding:14px 25px;background:linear-gradient(135deg,#dc143c,#0038a8);color:white;border-radius:10px;text-decoration:none;">
+Become a Sponsor
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="show">
+© 2026 Valorant Mobile Nepal — All Rights Reserved
+</footer>
+
+<script>
+// SCROLL ANIMATION
+const sections = document.querySelectorAll("section, footer, header");
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{threshold:0.1});
+
+sections.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>
